@@ -1,4 +1,5 @@
 # Polimorfismo es similar a la herencia pero cambiando el comportamiento de las clases. 
+# todo: Herencia: copy paste Polimorfismo: edit copy paste
 
 class Persona:
   
