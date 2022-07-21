@@ -3,6 +3,7 @@ import random
 
 def busqueda_binaria(lista, comienzo, final, objetivo):
 
+  print(f'Buscando {objetivo} entre {lista[comienzo]} y {lista[final - 1]}')
   if comienzo > final:    # ? Esto significa que el objetivo no existe en nuestra lista ordenada
     return False
 
@@ -13,14 +14,14 @@ def busqueda_binaria(lista, comienzo, final, objetivo):
   elif lista[medio] < objetivo:
     return busqueda_binaria(lista, medio + 1, final, objetivo)  # Reejecutamos la funcion pero con el "comienzo" siendo la mitad + 1
   else:
-    return busqueda_binaria(lista, comienzo, medio - 1, objetivo)  # # Reejecutamos la funcion pero con el "final" siendo la mitad - 1
+    return busqueda_binaria(lista, comienzo, medio - 1, objetivo)  # Reejecutamos la funcion pero con el "final" siendo la mitad - 1
 
 
 if __name__ == "__main__":
   tamano_de_lista = int(input('De que tamano sera la lista ? '))
   objetivo = int(input('Que numero quieres encontrar? '))
 
-  lista = sorted([random.randint(0, 100) for i in range(tamano_de_lista)]) 
+  lista = sorted([random.randint(0, 100) for i in range(tamano_de_lista)])  # Sorted nos ayuda a ordena nuestra lista antes de la busqueda
 
   encontrado = busqueda_binaria(lista, 0, len(lista), objetivo)
 
