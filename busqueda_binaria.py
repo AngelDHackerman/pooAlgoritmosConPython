@@ -1,20 +1,23 @@
 import random
 # todo: Las busquedas binarias se deben hacer con listas ORDENADAS
 
-def busqueda_binaria(lista, comienzo, final, objetivo):
+
+def busqueda_binaria(lista, comienzo, final, objetivo, contador = 1):
 
   print(f'Buscando {objetivo} entre {lista[comienzo]} y {lista[final - 1]}')
+  print(f'Se han dado: {contador} \n')
   if comienzo > final:    # ? Esto significa que el objetivo no existe en nuestra lista ordenada
     return False
 
   medio = (comienzo + final) // 2     # ? // significa division de enteros, NO va a devolver ningun decimal
 
+  
   if lista[medio] == objetivo:    # objetivo encontrado
     return True
   elif lista[medio] < objetivo:
-    return busqueda_binaria(lista, medio + 1, final, objetivo)  # Reejecutamos la funcion pero con el "comienzo" siendo la mitad + 1
+    return busqueda_binaria(lista, medio + 1, final, objetivo, contador + 1)  # Reejecutamos la funcion pero con el "comienzo" siendo la mitad + 1
   else:
-    return busqueda_binaria(lista, comienzo, medio - 1, objetivo)  # Reejecutamos la funcion pero con el "final" siendo la mitad - 1
+    return busqueda_binaria(lista, comienzo, medio - 1, objetivo, contador + 1)  # Reejecutamos la funcion pero con el "final" siendo la mitad - 1
 
 
 if __name__ == "__main__":
