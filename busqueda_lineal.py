@@ -1,9 +1,9 @@
 import random
 
 def busqueda_lineal(lista, objetivo):
-  match = False
+  match = False       # O(1) notation
 
-  for elemento in lista:
+  for elemento in lista:      # O(n) notation
     if elemento == objetivo:
       match = True
       break
